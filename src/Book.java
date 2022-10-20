@@ -1,9 +1,14 @@
+
 public class Book {
-    private final String name;
-    private final Author author;
+    private String name;
+    private Author author;
     private Integer publicationYear;
 
     public Book(String name, Author author, Integer publicationYear) {
+        if(author==null){
+            throw new RuntimeException("Author cannot be null");
+        }
+
         this.name = name;
         this.author = author;
         this.publicationYear = publicationYear;
@@ -13,14 +18,26 @@ public class Book {
         return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setAuthor(Author author) {
+        this.author = author;
+    }
+
     public Author getAuthor() {
         return author;
     }
 
-
-    public Integer getPublicationYear(int i) {
+    public Integer getPublicationYear() {
         return publicationYear;
     }
+
+    public void setPublicationYear(Integer publicationYear) {
+        this.publicationYear = publicationYear;
+    }
+
     @Override
     public String toString() {
         return "Book{" +
@@ -29,11 +46,4 @@ public class Book {
                 ", publicationYear=" + publicationYear +
                 '}';
     }
-
-    public void setPublicationYear(int publicationYear) {
-        this.publicationYear = 2020;
-        System.out.println();
-    }
-
-
 }
